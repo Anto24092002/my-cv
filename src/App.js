@@ -106,7 +106,7 @@ const CV = () => {
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full">
                   <Mail size={16} />
-                  <span>antorahme@outlook.com</span>
+                  <span>anthonyrahme24@outlook.com</span>
                 </div>
               </div>
             </div>
@@ -121,7 +121,7 @@ const CV = () => {
           </h2>
           <p className="text-gray-700 leading-relaxed text-lg">
             Driven marketer with experience in market analysis, strategic planning, and project coordination, 
-            now seeking a transition into Product Management. Eager to leverage a strong understanding of 
+            and Product Management. Eager to leverage a strong understanding of 
             customer needs, data-driven decision-making, and functional collaboration to build impactful 
             strategies and drive business growth. Proven ability to develop commercial strategies and 
             manage vendor relationships effectively.
