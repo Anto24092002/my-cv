@@ -100,7 +100,7 @@ const CV = () => {
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full">
                   <Mail size={16} />
-                  <span>anthonyrahme24@outlook.com</span>
+                  <span>anthonyrahme24@gmail.com</span>
                 </div>
               </div>
             </div>
