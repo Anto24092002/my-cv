@@ -3,11 +3,11 @@ import { Mail, Phone, MapPin, Calendar, Award, Code, Globe, ChevronDown, Chevron
 
 const CV = () => {
   const [expandedSections, setExpandedSections] = useState({
-    experience: true,
-    education: true,
-    skills: true
+    experience: false,
+    education: false,
+    skills: false,
+    projects: false
   });
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   const toggleSection = (section) => {
     setExpandedSections(prev => ({
@@ -58,6 +58,7 @@ const CV = () => {
     }
   ];
 
+  
   const projects = [
     {
       title: 'Sacotel Zenshine Campaign',
@@ -78,18 +79,11 @@ const CV = () => {
         {/* Header Section */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-8">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-            <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white/30 bg-white/20 backdrop-blur-sm">
-              {!imageLoaded && (
-                <div className="w-full h-full bg-white/20 rounded-full flex items-center justify-center text-4xl font-bold backdrop-blur-sm">
-                  AR
-                </div>
-              )}
-              <img 
-                src="https://i.imgur.com/V8is164.png" 
-                alt="Anthony Rahme" 
-                className={`w-full h-full object-cover ${imageLoaded ? 'block' : 'hidden'}`}
-                onLoad={() => setImageLoaded(true)}
-                onError={() => setImageLoaded(false)}
+            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white/30 bg-white/20 relative">
+              <img
+                src="https://i.imgur.com/V8is164.png"
+                alt="Anthony Rahme"
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[130%] h-auto max-w-none"
               />
             </div>
             <div className="flex-1 text-center md:text-left">
@@ -120,7 +114,7 @@ const CV = () => {
             Professional Summary
           </h2>
           <p className="text-gray-700 leading-relaxed text-lg">
-            Driven marketer with experience in market analysis, strategic planning, and project coordination, 
+            Driven marketer with experience in market analysis, strategic planning, project coordination, 
             and Product Management. Eager to leverage a strong understanding of 
             customer needs, data-driven decision-making, and functional collaboration to build impactful 
             strategies and drive business growth. Proven ability to develop commercial strategies and 
@@ -168,19 +162,38 @@ const CV = () => {
 
         {/* Projects Section */}
         <div className="p-8 bg-gray-50">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-            <ExternalLink className="text-blue-600" />
-            Notable Projects
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-3">{project.description}</p>
-                <span className="text-sm text-blue-600 font-medium">{project.period}</span>
-              </div>
-            ))}
+          <div
+            className="flex items-center justify-between cursor-pointer mb-6"
+            onClick={() => toggleSection('projects')}
+          >
+            <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
+              <ExternalLink className="text-blue-600" />
+              Notable Projects
+            </h2>
+            {expandedSections.projects ? (
+              <ChevronUp className="text-blue-600" />
+            ) : (
+              <ChevronDown className="text-blue-600" />
+            )}
           </div>
+          {expandedSections.projects && (
+            <div className="grid md:grid-cols-2 gap-6">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                >
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 mb-3">{project.description}</p>
+                  <span className="text-sm text-blue-600 font-medium">
+                    {project.period}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Education Section */}
