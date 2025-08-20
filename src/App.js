@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Analytics } from "@vercel/analytics/react"
 import { Mail, Phone, MapPin, Calendar, Award, Code, Globe, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 
 const CV = () => {
@@ -63,12 +64,12 @@ const CV = () => {
     {
       title: 'Sacotel Zenshine Campaign',
       description: 'Directed a university advertising campaign project for Sacotel Zenshine as part of the "Unleash Your Creativity" contest, resulting in a Top 10 nomination among all students in Lebanon',
-      period: 'Sep 2020 - June 2024'
+      
     },
     {
       title: 'Electric Bicycles Market Research',
       description: 'Directed comprehensive market research about the integration of electric bicycles as a transportation method',
-      period: 'Sep 2020 - June 2024'
+      
     }
   ];
 
